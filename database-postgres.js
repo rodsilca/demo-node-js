@@ -16,6 +16,16 @@ export class DatabasePostgres{
 
     }
 
+    async findById(id){
+        const videoId = id;
+
+        let video;
+
+        video = await sql`select * from videos where id = ${videoId}`
+
+        return video;
+    }
+
     async create(video){
         const videoId = randomUUID();
 
